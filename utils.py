@@ -86,7 +86,7 @@ def cal_prauc(mat):
         prauc_res = None
     return prauc_res
 
-def cal_auc_all(loss, x_test):
+def validate_by_target_prediction(loss, x_test):
     loss = loss.T
     loss['idd'] = loss.index
     loss_melt = pd.melt(loss, id_vars = ['idd']).rename(columns = {'target_protein' : 'variable', 'value' : 'prediction'})
